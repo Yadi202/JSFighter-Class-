@@ -44,6 +44,7 @@ class Fighter {
     amount = Math.floor(Math.random() * 6)
     console.log(this.name + " Dealt " + amount + ' damage to ' + target.name);
     koCheck(target, amount)
+    outputBox.innerHTML = target.name + " has " + target.hp + " Hp left"
   }
   single(target) {
     this.attack(target);
@@ -89,11 +90,10 @@ function showControls() {
 function koCheck(target, amount) {
   target.hp = target.hp - amount;
   console.log(target.hp);
-  outputBox.innerHTML = target.name + " has " + target.hp + " Hp left"
   if (target.hp <= 0) {
     hideControls()
     console.log(target.name + " Is dead");
-    outputBox.innerHTML = "Sam is dead"
+    outputBox.innerHTML = target.name + " is dead"
     return true;
   } else {
     playerTurn = true
