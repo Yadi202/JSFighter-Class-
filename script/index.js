@@ -89,10 +89,14 @@ function showControls() {
 function koCheck(target, amount) {
   target.hp = target.hp - amount;
   console.log(target.hp);
+  outputBox.innerHTML = target.name + " has " + target.hp + " Hp left"
   if (target.hp <= 0) {
+    hideControls()
     console.log(target.name + " Is dead");
+    outputBox.innerHTML = "Sam is dead"
     return true;
   } else {
+    playerTurn = true
     return false;
   }
 }
@@ -144,7 +148,14 @@ function updateBars(player, type, min, max) {
   barsBox.innerHTML += 'P1<div class="hpBar"><div style="height:' + player1PercentHP + '%; width: 100%;" id="p1HPfill" class="HPfill"></div></div>'
   barsBox.innerHTML += '<div class="spBar"><div style="height:' + player1PercentSP + '%; width: 100%;" id="p1SPfill" class="SPfill"></div></div>'
 }
-function hideContols() {
+// EndTurn code
+function endTurn() {
+  playerTurn = !playerTurn
+  if (kocheck(Player0, 0) || kocheck(Player1, 0)){
+    hideControls();
+  }
+}
+function hideControls() {
   controlsBox.innerHTML = "";
 }
 /*
