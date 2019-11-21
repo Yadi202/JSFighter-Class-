@@ -24,6 +24,8 @@ let graphicsBox;
 let barsBox;
 let controlsBox;
 let outputBox;
+let oldtext;
+let attacker;
 class Fighter {
   constructor(name, charaName) {
     //'contructor' is in all JS classes
@@ -50,12 +52,13 @@ class Fighter {
   }
 //this is the single attack function
   single(target) {
-    // oldtext = outputBox.innerHTML
-    // this.attack(target);
-    // if (logging){
-    //   outputBox.innerHTML += oldtext
-    // }
-    // endTurn();
+    oldtext = '<br>' + outputBox.innerHTML
+    this.attack(target);
+    attacker = '<br>' + this.name + " Dealt " + amount + ' damage to ' + target.name + outputBox.innerHTML;
+    if (logging) {
+      outputBox.innerHTML += oldtext, attacker;
+    }
+    endTurn();
   }
 //this is the double attack function
   double(target) {
@@ -67,6 +70,7 @@ class Fighter {
     console.log('Recovered!');
   }
 }
+
 function startup() {
   Player0 = new Fighter(P0NAME, P0CHARA);
   Player1 = new Fighter(P1NAME, P1CHARA);
@@ -115,6 +119,7 @@ function koCheck(target, amount) {
     return false;
   }
 }
+
 function updateBars(player, type, min, max) {
   //calculates the percent of HP
   // (min/max) * percent = 100
@@ -166,10 +171,9 @@ function updateBars(player, type, min, max) {
 // EndTurn code
 function endTurn() {
   playerTurn = !playerTurn
-  if (kocheck(Player0, 0) || kocheck(Player1, 0)){
+  if (kocheck(Player0, 0) || kocheck(Player1, 0)) {
     hideControls();
-  }
-  else {
+  } else {
     showControls()
   }
 }
