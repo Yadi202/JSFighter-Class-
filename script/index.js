@@ -48,7 +48,7 @@ class Fighter {
 
     // outputBox.innerHTML = player0.name + " has done " + amount + " damage"
   }
-
+//this is the single attack function
   single(target) {
     // oldtext = outputBox.innerHTML
     // this.attack(target);
@@ -57,7 +57,7 @@ class Fighter {
     // }
     // endTurn();
   }
-
+//this is the double attack function
   double(target) {
     this.attack(target);
     this.attack(target);
@@ -173,6 +173,7 @@ function endTurn() {
     showControls()
   }
 }
+// this hides the controlsBox
 function hideControls() {
   controlsBox.innerHTML = "";
 }
