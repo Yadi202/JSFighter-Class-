@@ -43,12 +43,19 @@ class Fighter {
     let amount = 0
     amount = Math.floor(Math.random() * 6)
     console.log(this.name + " Dealt " + amount + ' damage to ' + target.name);
-    koCheck(target, amount)
     outputBox.innerHTML = target.name + " has " + target.hp + " Hp left"
+    koCheck(target, amount)
+
+    // outputBox.innerHTML = player0.name + " has done " + amount + " damage"
   }
 
   single(target) {
-    this.attack(target);
+    // oldtext = outputBox.innerHTML
+    // this.attack(target);
+    // if (logging){
+    //   outputBox.innerHTML += oldtext
+    // }
+    // endTurn();
   }
 
   double(target) {
@@ -161,6 +168,9 @@ function endTurn() {
   playerTurn = !playerTurn
   if (kocheck(Player0, 0) || kocheck(Player1, 0)){
     hideControls();
+  }
+  else {
+    showControls()
   }
 }
 function hideControls() {
