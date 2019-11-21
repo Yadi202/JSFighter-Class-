@@ -25,7 +25,6 @@ let barsBox;
 let controlsBox;
 let outputBox;
 let oldtext;
-let attacker;
 class Fighter {
   constructor(name, charaName) {
     //'contructor' is in all JS classes
@@ -44,7 +43,7 @@ class Fighter {
     console.log(this.name + ' attacked ' + target.name);
     let amount = 0
     amount = Math.floor(Math.random() * 6)
-    console.log(this.name + " Dealt " + amount + ' damage to ' + target.name);
+    console.log(this.name + " damage dealt " + amount + ' damage to ' + target.name);
     outputBox.innerHTML = target.name + " has " + target.hp + " Hp left"
     koCheck(target, amount)
 
@@ -54,9 +53,9 @@ class Fighter {
   single(target) {
     oldtext = '<br>' + outputBox.innerHTML
     this.attack(target);
-    attacker = '<br>' + this.name + " Dealt " + amount + ' damage to ' + target.name + outputBox.innerHTML;
+    // outputBox.innerHTML = '<br>' + this.name + " Dealt " + amount + ' damage to ' + target.name + outputBox.innerHTML;
     if (logging) {
-      outputBox.innerHTML += oldtext, attacker;
+      outputBox.innerHTML += oldtext;
     }
     endTurn();
   }
